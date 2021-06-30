@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3fba32d3615508b748abbd4bfa916f9b",
+    "content-hash": "d251f79babadfd1c8be0a4a5e3898788",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4626,6 +4626,48 @@
                 }
             ],
             "time": "2021-06-06T09:51:56+00:00"
+        },
+        {
+            "name": "thekavish/laravel-api-response",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thekavish/laravel-api-response.git",
+                "reference": "8e931a28618412ed3eb6fcdb20997fed03090dc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thekavish/laravel-api-response/zipball/8e931a28618412ed3eb6fcdb20997fed03090dc2",
+                "reference": "8e931a28618412ed3eb6fcdb20997fed03090dc2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kavish\\APIResponse\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kavish",
+                    "email": "kavish619@gmail.com"
+                }
+            ],
+            "description": "Formatted API response for Laravel projects",
+            "support": {
+                "issues": "https://github.com/thekavish/laravel-api-response/issues",
+                "source": "https://github.com/thekavish/laravel-api-response/tree/v2.0.2"
+            },
+            "time": "2021-04-27T18:59:31+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

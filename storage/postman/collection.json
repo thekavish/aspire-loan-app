@@ -1,0 +1,689 @@
+{
+    "info": {
+        "_postman_id": "97c34ab8-426f-46e1-b1fc-70a02b5757ad",
+        "name": "Mini Aspire",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Register",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.json().meta.status === \"SUCCESS\") pm.collectionVariables.set('token',  pm.response.json().data.token)\r",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "noauth"
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"name\": \"Kavish Patel\",\r\n    \"email\": \"kavish619@gmail.com\",\r\n    \"password\": \"secret123\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/signup",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "signup"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"name\": \"Kavish Patel\",\r\n    \"email\": \"kavish619@gmail.com\",\r\n    \"password\": \"secret123\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{base_url}}/signup",
+                                    "host": [
+                                        "{{base_url}}"
+                                    ],
+                                    "path": [
+                                        "signup"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Host",
+                                    "value": "localhost:8000"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 00:54:10 GMT"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 00:54:10 GMT"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "close"
+                                },
+                                {
+                                    "key": "X-Powered-By",
+                                    "value": "PHP/7.4.1"
+                                },
+                                {
+                                    "key": "Cache-Control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                },
+                                {
+                                    "key": "X-RateLimit-Limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "X-RateLimit-Remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "Access-Control-Allow-Origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "{\n    \"meta\": {\n        \"status\": \"SUCCESS\",\n        \"status_code\": 200,\n        \"current_page\": 1,\n        \"total_page\": 1\n    },\n    \"data\": {\n        \"message\": \"Account created successfully!\",\n        \"token\": \"1|97lwyZJiL2Lve2g6QVdBi1koYnwZfUP2tdyrc6za\"\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Login",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.json().meta.status === \"SUCCESS\") pm.collectionVariables.set('token',  pm.response.json().data.token)\r",
+                                    ""
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "auth": {
+                            "type": "noauth"
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"email\": \"kavish619@gmail.com\",\r\n    \"password\": \"secret123\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/login",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "login"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Failed (email not found)",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"email\": \"kavish@test.com\",\r\n    \"password\": \"secret123\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{base_url}}/login",
+                                    "host": [
+                                        "{{base_url}}"
+                                    ],
+                                    "path": [
+                                        "login"
+                                    ]
+                                }
+                            },
+                            "status": "Forbidden",
+                            "code": 403,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Host",
+                                    "value": "localhost:8000"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 00:54:35 GMT"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 00:54:35 GMT"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "close"
+                                },
+                                {
+                                    "key": "X-Powered-By",
+                                    "value": "PHP/7.4.1"
+                                },
+                                {
+                                    "key": "Cache-Control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                },
+                                {
+                                    "key": "X-RateLimit-Limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "X-RateLimit-Remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "Access-Control-Allow-Origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "{\n    \"meta\": {\n        \"status\": \"FAILED\",\n        \"status_code\": 403,\n        \"current_page\": 1,\n        \"total_page\": 1\n    },\n    \"error\": [\n        {\n            \"key\": \"email\",\n            \"message\": \"The selected email is invalid.\"\n        }\n    ]\n}"
+                        },
+                        {
+                            "name": "Failed (email password mis-match)",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"email\": \"kavish619@gmail.com\",\r\n    \"password\": \"secret13\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{base_url}}/login",
+                                    "host": [
+                                        "{{base_url}}"
+                                    ],
+                                    "path": [
+                                        "login"
+                                    ]
+                                }
+                            },
+                            "status": "Not Found",
+                            "code": 404,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Host",
+                                    "value": "localhost:8000"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 00:55:28 GMT"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 00:55:28 GMT"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "close"
+                                },
+                                {
+                                    "key": "X-Powered-By",
+                                    "value": "PHP/7.4.1"
+                                },
+                                {
+                                    "key": "Cache-Control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                },
+                                {
+                                    "key": "X-RateLimit-Limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "X-RateLimit-Remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "Access-Control-Allow-Origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "{\n    \"meta\": {\n        \"status\": \"FAILED\",\n        \"status_code\": 404,\n        \"current_page\": 1,\n        \"total_page\": 1\n    },\n    \"error\": [\n        {\n            \"key\": \"message\",\n            \"message\": \"These credentials do not match our records.\"\n        }\n    ]\n}"
+                        },
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"email\": \"kavish619@gmail.com\",\r\n    \"password\": \"secret123\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{base_url}}/login",
+                                    "host": [
+                                        "{{base_url}}"
+                                    ],
+                                    "path": [
+                                        "login"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Host",
+                                    "value": "localhost:8000"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 00:56:38 GMT"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 00:56:38 GMT"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "close"
+                                },
+                                {
+                                    "key": "X-Powered-By",
+                                    "value": "PHP/7.4.1"
+                                },
+                                {
+                                    "key": "Cache-Control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                },
+                                {
+                                    "key": "X-RateLimit-Limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "X-RateLimit-Remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "Access-Control-Allow-Origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "{\n    \"meta\": {\n        \"status\": \"SUCCESS\",\n        \"status_code\": 200,\n        \"current_page\": 1,\n        \"total_page\": 1\n    },\n    \"data\": {\n        \"message\": \"Logged in successfully!\",\n        \"token\": \"2|UJ0DiURXzNrYdTe8mmKmGeIRmiA1L59bUT9HaWzJ\"\n    }\n}"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Transactions",
+            "item": [
+                {
+                    "name": "Loan Request",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"amount\": 1200,\r\n    \"duration\": 12\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/loan/apply",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "loan",
+                                "apply"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"amount\": 1200,\r\n    \"duration\": 12\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{base_url}}/loan/apply",
+                                    "host": [
+                                        "{{base_url}}"
+                                    ],
+                                    "path": [
+                                        "loan",
+                                        "apply"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Host",
+                                    "value": "localhost:8000"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 01:24:47 GMT"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 01:24:47 GMT"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "close"
+                                },
+                                {
+                                    "key": "X-Powered-By",
+                                    "value": "PHP/7.4.1"
+                                },
+                                {
+                                    "key": "Cache-Control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                },
+                                {
+                                    "key": "X-RateLimit-Limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "X-RateLimit-Remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "phpdebugbar-id",
+                                    "value": "Xa4870d92c85434a7c1d928499e5399e7"
+                                },
+                                {
+                                    "key": "Access-Control-Allow-Origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "{\n    \"meta\": {\n        \"status\": \"SUCCESS\",\n        \"status_code\": 200,\n        \"current_page\": 1,\n        \"total_page\": 1\n    },\n    \"data\": {\n        \"message\": \"Loan has been applied successfully!\"\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Loan Repayment",
+                    "protocolProfileBehavior": {
+                        "disabledSystemHeaders": {
+                            "content-type": true,
+                            "accept": true
+                        }
+                    },
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"amount\": 152.40\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/loan/1/repay",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "loan",
+                                "1",
+                                "repay"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json",
+                                        "type": "text"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"amount\": 152.40\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{base_url}}/loan/1/repay",
+                                    "host": [
+                                        "{{base_url}}"
+                                    ],
+                                    "path": [
+                                        "loan",
+                                        "1",
+                                        "repay"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Host",
+                                    "value": "localhost:8000"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 01:33:31 GMT"
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Wed, 30 Jun 2021 01:33:31 GMT"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "close"
+                                },
+                                {
+                                    "key": "X-Powered-By",
+                                    "value": "PHP/7.4.1"
+                                },
+                                {
+                                    "key": "Cache-Control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                },
+                                {
+                                    "key": "X-RateLimit-Limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "X-RateLimit-Remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "Access-Control-Allow-Origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "{\n    \"meta\": {\n        \"status\": \"SUCCESS\",\n        \"status_code\": 200,\n        \"current_page\": 1,\n        \"total_page\": 1\n    },\n    \"data\": {\n        \"message\": \"Repayment made successfully!\",\n        \"remaining\": 1400\n    }\n}"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "{{token}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8000/api"
+        },
+        {
+            "key": "token",
+            "value": "some_token"
+        }
+    ]
+}

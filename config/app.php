@@ -230,4 +230,5 @@ return [
 
     ],
 
+    'interest_rate' => (float)env('APP_INTEREST_RATE', 1.2),
 ];
