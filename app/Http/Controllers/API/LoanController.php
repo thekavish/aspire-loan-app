@@ -73,7 +73,7 @@ class LoanController extends Controller
      */
     public function repay(Request $request, Loan $loan)
     {
-        $validRequest = Validator::make($request->all(), ['amount' => 'required']);
+        $validRequest = Validator::make($request->all(), ['amount' => 'required|numeric']);
 
         $validRequest->after(
             function ($validRequest) use ($loan, $request) {
