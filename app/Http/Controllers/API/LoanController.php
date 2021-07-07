@@ -29,8 +29,8 @@ class LoanController extends Controller
                 'duration' => 'required|numeric|min:12',
             ],
             [
-                'amount.min' => 'Requested amount must exceed 99',
-                'duration.min' => 'Loan duration must exceed 11 Weeks',
+                'amount.min' => 'Requested loan amount must exceed $99.',
+                'duration.min' => 'Requested loan duration must exceed 11 Weeks.',
             ]
         );
 
@@ -55,9 +55,8 @@ class LoanController extends Controller
         $data['amount'] = $request->amount;
         $data['duration'] = $request->duration;
         $data['interest_rate'] = config('app.interest_rate');
-        $data['calculated_interest'] = (config('app.interest_rate') / 100) *
-            $request->amount * (ceil($request->duration)); // Simple Interest
-        $data['other_charges'] = 250;                      // Processing charges etc.
+        $data['calculated_interest'] = $request->amount * $request->duration * config('app.interest_rate') / 100;
+        $data['other_charges'] = 250;
         $data['total_amount'] = $data['amount'] + $data['calculated_interest'] + $data['other_charges'];
 
         Loan::create($data);

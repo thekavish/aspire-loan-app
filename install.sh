@@ -5,10 +5,7 @@ composer install --optimize-autoloader --no-dev
 
 echo "================> Generate app key"
 php artisan key:generate
-
-echo "================> Optimizing Laravel"
 php artisan optimize:clear
-php artisan optimize
 
 echo "================> Set folder permissions"
 chmod -R o+w storage/app
@@ -21,5 +18,8 @@ chmod -R o+w bootstrap/cache
 
 echo "================> Migrate database"
 php artisan migrate --seed
+
+echo "================> Optimizing Laravel"
+php artisan optimize
 
 echo "================> Installation completed!"

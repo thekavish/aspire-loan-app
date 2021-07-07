@@ -8,8 +8,13 @@
 
 3. Import Postman collection from `<root>/storage/postman/collection.json`
 
-4. Run install `$ sh install.sh`
+4. Run install `$ sh ./install.sh`
 
 ## How to run the app
 
-`$ php artisan serve`
+- `$ php artisan serve`
+
+## How to run unit tests
+
+- `$ php artisan config:clear` To refrain PHPUnit from clearing your DB tables
+- `$ "./vendor/bin/phpunit"` Run all tests
